@@ -26,12 +26,7 @@ public class LambdaRunner {
     }
     
     
-    public static <T> T runUnaryOperator(UnaryOperator<T> operator, T operand) {
-        return operator.apply(operand);
-    }
-    
-    
-    public static boolean runAgeChecker(AgeChecker ageChecker, Human human1, Human human2, Human human3, int age) {
+    public static boolean runAgeChecker(AgeChecker ageChecker, int age, Human human1, Human human2, Human human3) {
         return ageChecker.check(age, human1, human2, human3);
     }
 }
