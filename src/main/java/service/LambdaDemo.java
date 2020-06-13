@@ -20,10 +20,10 @@ public class LambdaDemo {
     public static final Predicate<String> noSpaces = s -> s == null || !s.contains(" ");
     
     
-    public static final Function<String, Integer> countCommaSeparatedWords = s -> s == null? null : s.split(",").length + 1;
+    public static final Function<String, Integer> countCommaSeparatedWords = s -> s == null? null : s.split(",").length;
     
     
-    public static final Function<Human, Integer> getAge = human -> human == null? null : human.getAge();
+    public static final Function<Human, Integer> age = human -> human == null? null : human.getAge();
     
     
     public static final BiPredicate<Human, Human> sameSecondName = (human1, human2) -> human1 != null && human2 != null &&
