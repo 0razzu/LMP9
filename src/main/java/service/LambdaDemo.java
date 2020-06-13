@@ -17,7 +17,7 @@ public class LambdaDemo {
     public static final Function<String, Character> firstChar = s -> (s == null || s.length() == 0)? null : s.charAt(0);
     
     
-    public static final Predicate<String> noSpaces = s -> s == null || s.contains(" ");
+    public static final Predicate<String> noSpaces = s -> s == null || !s.contains(" ");
     
     
     public static final Function<String, Integer> countCommaSeparatedWords = s -> s == null? null : s.split(",").length + 1;
