@@ -14,7 +14,7 @@ public class LambdaDemo {
     public static final Function<String, Integer> stringLength = s -> s == null? null : s.length();
     
     
-    public static final Function<String, Character> firstChar = s -> (s == null || s.length() == 0)? null : s.charAt(0);
+    public static final Function<String, Character> firstChar = s -> (s == null || s.isEmpty())? null : s.charAt(0);
     
     
     public static final Predicate<String> noSpaces = s -> s == null || !s.contains(" ");
