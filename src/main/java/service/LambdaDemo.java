@@ -4,6 +4,7 @@ package service;
 import iface.AgeChecker;
 import model.Human;
 
+import java.util.Arrays;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -24,19 +25,8 @@ public class LambdaDemo {
      Не работает! Пустое слово - это не слово.
     */
     // fixed
-    public static final Function<String, Integer> countCommaSeparatedWords = s -> {
-        if (s == null)
-            return null;
-        
-        int counter = 0;
-        String[] words = s.split(",");
-        
-        for (String word: words)
-            if (!word.isEmpty())
-                counter++;
-        
-        return counter;
-    };
+    public static final Function<String, Long> countCommaSeparatedWords = s ->
+            s == null? null : Arrays.stream(s.split(",")).filter(word -> !word.isEmpty()).count();
     
     
     public static final Function<Human, Integer> age = human -> human == null? null : human.getAge();
