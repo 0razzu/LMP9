@@ -19,10 +19,24 @@ public class LambdaDemo {
     
     public static final Predicate<String> noSpaces = s -> s == null || !s.contains(" ");
     
+    
     /* Филиппов А.В. 20.06.2020 Комментарий не удалять.
      Не работает! Пустое слово - это не слово.
     */
-    public static final Function<String, Integer> countCommaSeparatedWords = s -> s == null? null : s.split(",").length;
+    // fixed
+    public static final Function<String, Integer> countCommaSeparatedWords = s -> {
+        if (s == null)
+            return null;
+        
+        int counter = 0;
+        String[] words = s.split(",");
+        
+        for (String word: words)
+            if (!word.isEmpty())
+                counter++;
+        
+        return counter;
+    };
     
     
     public static final Function<Human, Integer> age = human -> human == null? null : human.getAge();

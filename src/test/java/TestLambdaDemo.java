@@ -46,10 +46,14 @@ public class TestLambdaDemo {
     void testCountCommaSeparatedWords() {
         assertAll(
                 () -> assertNull(LambdaDemo.firstChar.apply(null)),
-                () -> assertEquals(1, LambdaDemo.countCommaSeparatedWords.apply("")),
+                () -> assertEquals(0, LambdaDemo.countCommaSeparatedWords.apply("")),
                 () -> assertEquals(1, LambdaDemo.countCommaSeparatedWords.apply("1")),
                 () -> assertEquals(3, LambdaDemo.countCommaSeparatedWords.apply("Some, wo&rds,аб.в")),
-                () -> assertEquals(2, LambdaDemo.countCommaSeparatedWords.apply("1,,2"))
+                () -> assertEquals(2, LambdaDemo.countCommaSeparatedWords.apply("1,,2")),
+                () -> assertEquals(2, LambdaDemo.countCommaSeparatedWords.apply("1,,,,,2")),
+                () -> assertEquals(2, LambdaDemo.countCommaSeparatedWords.apply(",1,,2")),
+                () -> assertEquals(2, LambdaDemo.countCommaSeparatedWords.apply(",1,,2,")),
+                () -> assertEquals(0, LambdaDemo.countCommaSeparatedWords.apply(",,,"))
         );
     }
     
